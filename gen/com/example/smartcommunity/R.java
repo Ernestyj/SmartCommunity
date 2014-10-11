@@ -21,8 +21,14 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int com_tencent_open_notice_msg_icon_big=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
+        public static final int damai=0x7f020000;
+        public static final int dididache=0x7f020001;
+        public static final int eleme=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int kuaidi100=0x7f020004;
+        public static final int meituan=0x7f020005;
+        public static final int pic=0x7f020006;
+        public static final int tongquwang=0x7f020007;
     }
     public static final class id {
         public static final int action_settings=0x7f080003;

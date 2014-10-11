@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.example.smartcommunity.R;
-import com.example.smartcommunity.ui.DragGridBaseAdapter;
+import com.example.smartcommunity.ui.DragGridAdapterBase;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -20,7 +20,7 @@ import android.widget.TextView;
  * @author xiaanming
  *
  */
-public class DragGridAdapter extends BaseAdapter implements DragGridBaseAdapter{
+public class DragGridAdapter extends BaseAdapter implements DragGridAdapterBase{
 	private List<HashMap<String, Object>> list;
 	private LayoutInflater mInflater;
 	private int mHidePosition = -1;

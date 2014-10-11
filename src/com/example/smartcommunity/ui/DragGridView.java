@@ -23,7 +23,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 
-import com.example.smartcommunity.ui.DragGridBaseAdapter;
+import com.example.smartcommunity.ui.DragGridAdapterBase;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.animation.AnimatorSet;
@@ -121,7 +121,7 @@ public class DragGridView extends GridView{
 	
 	private boolean mAnimationEnd = true;
 	
-	private DragGridBaseAdapter mDragAdapter;
+	private DragGridAdapterBase mDragAdapter;
 	private int mNumColumns;
 	private int mColumnWidth;
 	private boolean mNumColumnsSet;
@@ -169,13 +169,12 @@ public class DragGridView extends GridView{
 	public void setAdapter(ListAdapter adapter) {
 		super.setAdapter(adapter);
 		
-		if(adapter instanceof DragGridBaseAdapter){
-			mDragAdapter = (DragGridBaseAdapter) adapter;
+		if(adapter instanceof DragGridAdapterBase){
+			mDragAdapter = (DragGridAdapterBase) adapter;
 		}else{
-			throw new IllegalStateException("the adapter must be implements DragGridAdapter");
+			throw new IllegalStateException("the adapter must be implements DragGridAdapterBase");
 		}
-	}
-	
+	}	
 
 	@Override
 	public void setNumColumns(int numColumns) {

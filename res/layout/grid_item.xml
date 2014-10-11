@@ -6,9 +6,12 @@
 
     <ImageView
         android:id="@+id/item_image"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxWidth="70dip"
+        android:maxHeight="70dip"
+        android:adjustViewBounds="true"
         android:layout_centerHorizontal="true" >
     </ImageView>
 
