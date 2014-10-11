@@ -4,5 +4,11 @@
     <string name="app_name">SmartCommunity</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_neigh_center">NeighCenter</string>
 
+    <!-- neighbour center item label -->
+    <string name="lab_tenementfee">物业费</string>
+    <string name="lab_recreation">娱乐设施</string>
+    <string name="lab_maintance">物业呼叫</string>
+    <string name="lab_doorkeeper">门卫呼叫</string>
 </resources>

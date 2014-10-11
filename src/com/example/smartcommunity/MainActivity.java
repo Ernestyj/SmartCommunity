@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 										"自助银行", "家庭理财", "携程票务", "费用充值",
 										"网上购物", "人寿保险", "亲子资讯", "家装服务"
 										};
-	private static String[] images = {"pic", "pic", "eleme", "pic", 
+	private static String[] images = {"neighbourhood", "pic", "eleme", "pic", 
 										"meituan", "tongquwang", "kuaidi100", "pic", 
 										"pic", "pic", "pic", "pic",
 										"pic", "pic", "dididache", "damai",
@@ -92,6 +92,10 @@ public class MainActivity extends Activity {
 					damai.setClassName("cn.damai", "cn.damai.activity.MainSplashActivity");  
 					startActivity(damai);
 					break;
+					
+				case R.drawable.neighbourhood:
+					Intent neighCenterIntent = new Intent(MainActivity.this, NeighCenter.class);
+					startActivity(neighCenterIntent);
 				default:
 					break;
 				}
