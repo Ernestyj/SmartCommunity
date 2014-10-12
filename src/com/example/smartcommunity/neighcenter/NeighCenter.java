@@ -1,4 +1,4 @@
-package com.example.smartcommunity;
+package com.example.smartcommunity.neighcenter;
 
 import java.util.ArrayList;
 import java.util.HashMap;

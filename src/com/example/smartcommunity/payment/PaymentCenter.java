@@ -1,4 +1,4 @@
-package com.example.smartcommunity;
+package com.example.smartcommunity.payment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,6 +6,7 @@ import java.util.HashMap;
 import com.example.smartcommunity.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +16,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 public class PaymentCenter extends Activity {
 	//icon
@@ -54,7 +54,26 @@ public class PaymentCenter extends Activity {
 		public void onItemClick(AdapterView<?> adapter, View view, int position,
 				long rowid) {
 			// TODO Auto-generated method stub
-			Toast.makeText(getApplicationContext(), "payment center", Toast.LENGTH_SHORT).show();
+			@SuppressWarnings("unchecked")
+			HashMap<String, Object> itemMap = (HashMap<String, Object>) adapter.getItemAtPosition(position);
+			Integer itemIcon = (Integer)itemMap.get("icon");
+			switch (itemIcon) {
+			case R.drawable.icon_chinamobile:
+				startActivity(new Intent(getApplicationContext(), ChinaMobilePage.class));
+				//Toast.makeText(getApplicationContext(), "payment center", Toast.LENGTH_SHORT).show();
+				break;
+
+			case R.drawable.icon_chinaunicom:
+				startActivity(new Intent(getApplicationContext(),ChinaUnicomPage.class));
+				break;
+				
+			case R.drawable.icon_chinatelecom:
+				startActivity(new Intent(getApplicationContext(),ChinaTelecomPage.class));
+				break;
+				
+			default:
+				break;
+			}
 		}
 		
 	}
