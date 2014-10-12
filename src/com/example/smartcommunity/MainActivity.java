@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.example.smartcommunity.nearbyservice.NearbyService;
 import com.example.smartcommunity.neighcenter.NeighCenter;
 import com.example.smartcommunity.payment.PaymentCenter;
 import com.example.smartcommunity.ui.DragGridAdapter;
@@ -25,14 +26,14 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 	
 	private List<HashMap<String, Object>> dataSourceList = new ArrayList<HashMap<String, Object>>();
-	private static String[] labels = {"邻里中心", "智能家居", "社区送餐", "便民缴费", 
+	private static String[] labels = {"周边服务", "邻里中心", "智能家居", "社区送餐", "便民缴费", 
 										"邻里团购", "邻里活动", "快递信息", "费用充值", 
 										"彩票资讯", "紧急呼救", "一键家政", "老年服务",
 										"医院服务", "干洗服务", "一键打车", "格瓦拉",
 										"自助银行", "家庭理财", "携程票务", "费用充值",
 										"网上购物", "人寿保险", "亲子资讯", "家装服务"
 										};
-	private static String[] images = {"icon_neighbourhood", "pic", "icon_eleme", "icon_payment", 
+	private static String[] images = {"icon_nearbyservice", "icon_neighbourhood", "icon_smarthome", "icon_eleme", "icon_payment", 
 										"icon_meituan", "icon_tongquwang", "icon_kuaidi100", "pic", 
 										"pic", "pic", "pic", "pic",
 										"pic", "pic", "icon_dididache", "icon_damai",
@@ -70,7 +71,7 @@ public class MainActivity extends Activity {
 					try {
 						startActivity(eleme);
 					} catch (Exception e) {
-						Toast.makeText(getApplicationContext(), "请先安装饿了么？", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(), "请先安装饿了么", Toast.LENGTH_SHORT).show();
 					}
 					break;
 					
@@ -132,6 +133,11 @@ public class MainActivity extends Activity {
 				case R.drawable.icon_payment:
 					Intent paymentIntent = new Intent(MainActivity.this,PaymentCenter.class);
 					startActivity(paymentIntent);
+					break;
+					
+				case R.drawable.icon_nearbyservice:
+					Intent nearbyServiceIntent = new Intent(MainActivity.this,NearbyService.class);
+					startActivity(nearbyServiceIntent);
 					break;
 					
 				default:

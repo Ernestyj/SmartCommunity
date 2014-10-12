@@ -44,6 +44,9 @@
             android:name="com.example.smartcommunity.payment.ChinaTelecomPage"
             android:label="@string/title_activity_china_telecom" >
         </activity>
+        <activity android:name=".nearbyservice.NearbyService"
+            android:label="@string/title_activity_nearby_service">
+        </activity>
     </application>
 
 </manifest>

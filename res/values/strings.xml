@@ -6,6 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_neigh_center">NeighCenter</string>
     <string name="title_activity_payment_center">PaymentCenter</string>
+    <string name="title_activity_nearby_service">NearbyService</string>
 
     <!-- neighbour center item label -->
     <string name="lab_tenementfee">物业费</string>
