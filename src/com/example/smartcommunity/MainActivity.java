@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 										"自助银行", "家庭理财", "携程票务", "费用充值",
 										"网上购物", "人寿保险", "亲子资讯", "家装服务"
 										};
-	private static String[] images = {"neighbourhood", "pic", "eleme", "pic", 
+	private static String[] images = {"neighbourhood", "pic", "eleme", "icon_payment", 
 										"meituan", "tongquwang", "kuaidi100", "pic", 
 										"pic", "pic", "pic", "pic",
 										"pic", "pic", "dididache", "damai",
@@ -65,37 +65,80 @@ public class MainActivity extends Activity {
 				case R.drawable.eleme:
 					Intent eleme=new Intent();    
 					eleme.setClassName("me.ele", "me.ele.activity.SplashActivity");  
-					startActivity(eleme);
+					try {
+						startActivity(eleme);
+					} catch (Exception e) {
+						// TODO: handle exception
+						Toast.makeText(getApplicationContext(), "请先安装饿了么？", Toast.LENGTH_SHORT).show();
+					}
 					break;
+					
 				case R.drawable.meituan:
 					Intent meituan=new Intent();    
-					meituan.setClassName("com.sankuai.meituan", "com.sankuai.meituan.activity.Welcome");  
-					startActivity(meituan);
+					meituan.setClassName("com.sankuai.meituan", "com.sankuai.meituan.activity.Welcome");
+					try {
+						startActivity(meituan);
+					} catch (Exception e) {
+						// TODO: handle exception
+						Toast.makeText(getApplicationContext(), "请先安装美团", Toast.LENGTH_SHORT).show();
+					}
 					break;
+					
 				case R.drawable.tongquwang:
 					Intent tongquwang=new Intent();    
-					tongquwang.setClassName("com.tongqu", "com.tongqu.welcome.WelcomeActivity");  
-					startActivity(tongquwang);
+					tongquwang.setClassName("com.tongqu", "com.tongqu.welcome.WelcomeActivity"); 
+					try {
+						startActivity(tongquwang);
+					} catch (Exception e) {
+						// TODO: handle exception
+						Toast.makeText(getApplicationContext(), "请先安装同去客户端", Toast.LENGTH_SHORT).show();
+					}
 					break;
+					
 				case R.drawable.kuaidi100:
 					Intent intent=new Intent();    
-					intent.setClassName("com.Kingdee.Express", "com.Express.Activity.Splash");  
-					startActivity(intent);
+					intent.setClassName("com.Kingdee.Express", "com.Express.Activity.Splash");
+					try {
+						startActivity(intent);
+					} catch (Exception e) {
+						// TODO: handle exception
+						Toast.makeText(getApplicationContext(), "请先安装快递100", Toast.LENGTH_SHORT).show();
+					}
 					break;
+					
 				case R.drawable.dididache:
 					Intent dididache=new Intent();    
 					dididache.setClassName("com.sdu.didi.psnger", "com.didi.frame.MainActivity");  
-					startActivity(dididache);
+					try {
+						startActivity(dididache);
+					} catch (Exception e) {
+						// TODO: handle exception
+						Toast.makeText(getApplicationContext(), "请先安装滴滴打车", Toast.LENGTH_SHORT).show();
+					}
 					break;
+					
 				case R.drawable.damai:
 					Intent damai=new Intent();    
 					damai.setClassName("cn.damai", "cn.damai.activity.MainSplashActivity");  
-					startActivity(damai);
+					try {
+						startActivity(damai);
+					} catch (Exception e) {
+						// TODO: handle exception
+						Toast.makeText(getApplicationContext(), "请先安装大麦客户端", Toast.LENGTH_SHORT).show();
+					}
 					break;
 					
 				case R.drawable.neighbourhood:
 					Intent neighCenterIntent = new Intent(MainActivity.this, NeighCenter.class);
 					startActivity(neighCenterIntent);
+					break;
+					
+				case R.drawable.icon_payment:
+					//Toast.makeText(getApplicationContext(), "payment", Toast.LENGTH_SHORT).show();
+					Intent paymentIntent = new Intent(MainActivity.this,PaymentCenter.class);
+					startActivity(paymentIntent);
+					break;
+					
 				default:
 					break;
 				}
