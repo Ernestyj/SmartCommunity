@@ -9,6 +9,7 @@
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -29,8 +30,20 @@
             android:label="@string/title_activity_neigh_center" >
         </activity>
         <activity
-            android:name="com.example.smartcommunity.ui.PaymentCenter"
+            android:name=".ui.PaymentCenter"
             android:label="@string/title_activity_payment_center" >
+        </activity>
+        <activity
+            android:name=".ui.ChinaMobilePage"
+            android:label="@string/title_activity_china_mobile_page" >
+        </activity>
+        <activity
+            android:name=".ui.ChinaUnicomPage"
+            android:label="@string/title_activity_china_unicom_page" >
+        </activity>
+        <activity
+            android:name="com.example.smartcommunity.ui.ChinaTelecomPage"
+            android:label="@string/title_activity_china_telecom" >
         </activity>
     </application>
 

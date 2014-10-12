@@ -5,15 +5,15 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_neigh_center">NeighCenter</string>
-	<string name="title_activity_payment_center">PaymentCenter</string>
-	
+    <string name="title_activity_payment_center">PaymentCenter</string>
+
     <!-- neighbour center item label -->
     <string name="lab_tenementfee">物业费</string>
     <string name="lab_recreation">娱乐设施</string>
     <string name="lab_maintance">物业呼叫</string>
     <string name="lab_doorkeeper">门卫呼叫</string>
-    
-	<!-- payment center item label -->
+
+    <!-- payment center item label -->
     <string name="lab_waterbill">水费</string>
     <string name="lab_powerbill">电费</string>
     <string name="lab_gasbill">煤气费</string>
@@ -21,5 +21,8 @@
     <string name="lab_chinamobile">移动账单</string>
     <string name="lab_chinaunicom">联通账单</string>
     <string name="lab_chinatelecom">电信账单</string>
-    
+    <string name="title_activity_china_mobile_page">ChinaMobilePage</string>
+    <string name="title_activity_china_unicom_page">ChinaUnicomPage</string>
+    <string name="title_activity_china_telecom">ChinaTelecom</string>
+
 </resources>
