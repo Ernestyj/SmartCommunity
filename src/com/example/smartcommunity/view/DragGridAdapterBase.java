@@ -1,4 +1,4 @@
-package com.example.smartcommunity.ui;
+package com.example.smartcommunity.view;
 
 public interface DragGridAdapterBase {
 	/**

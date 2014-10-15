@@ -1,11 +1,11 @@
-package com.example.smartcommunity.ui;
+package com.example.smartcommunity.view;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
 import com.example.smartcommunity.R;
-import com.example.smartcommunity.ui.DragGridAdapterBase;
+import com.example.smartcommunity.view.DragGridAdapterBase;
 
 import android.content.Context;
 import android.view.LayoutInflater;
