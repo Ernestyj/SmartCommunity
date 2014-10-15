@@ -2,7 +2,7 @@ package com.example.smartcommunity.ui;
 
 public interface DragGridAdapterBase {
 	/**
-	 * 重新排列数据
+	 * 閲嶆柊鎺掑垪鏁版嵁
 	 * @param oldPosition
 	 * @param newPosition
 	 */
@@ -10,7 +10,7 @@ public interface DragGridAdapterBase {
 	
 	
 	/**
-	 * 设置某个item隐藏
+	 * 璁剧疆鏌愪釜item闅愯棌
 	 * @param hidePosition
 	 */
 	public void setHideItem(int hidePosition);

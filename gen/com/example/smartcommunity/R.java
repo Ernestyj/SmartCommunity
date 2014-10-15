@@ -56,25 +56,31 @@ public final class R {
         public static final int icon_training=0x7f02001b;
         public static final int icon_travel=0x7f02001c;
         public static final int icon_water=0x7f02001d;
-        public static final int pic=0x7f02001e;
+        public static final int page_indicator=0x7f02001e;
+        public static final int page_indicator_focused=0x7f02001f;
+        public static final int pic=0x7f020020;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000f;
+        public static final int action_settings=0x7f080013;
         public static final int chinamobilepage=0x7f080000;
         public static final int chinatelecompage=0x7f080001;
         public static final int chinaunicompage=0x7f080002;
-        public static final int dragGridView=0x7f080003;
-        public static final int item_image=0x7f080007;
-        public static final int item_text=0x7f080008;
-        public static final int nc_func_item_icon=0x7f08000b;
-        public static final int nc_func_item_lab=0x7f08000c;
-        public static final int nearbyservice=0x7f080004;
-        public static final int neighcentergridcenter=0x7f080005;
-        public static final int ns_func_item_icon=0x7f080009;
-        public static final int ns_func_item_lab=0x7f08000a;
-        public static final int paymentcenter=0x7f080006;
-        public static final int pc_func_item_icon=0x7f08000d;
-        public static final int pc_func_item_lab=0x7f08000e;
+        public static final int dragGridView=0x7f08000a;
+        public static final int item_image=0x7f08000b;
+        public static final int item_text=0x7f08000c;
+        public static final int linearLayout1=0x7f080003;
+        public static final int linearLayout2=0x7f080005;
+        public static final int nc_func_item_icon=0x7f08000f;
+        public static final int nc_func_item_lab=0x7f080010;
+        public static final int nearbyservice=0x7f080007;
+        public static final int neighcentergridcenter=0x7f080008;
+        public static final int ns_func_item_icon=0x7f08000d;
+        public static final int ns_func_item_lab=0x7f08000e;
+        public static final int paymentcenter=0x7f080009;
+        public static final int pc_func_item_icon=0x7f080011;
+        public static final int pc_func_item_lab=0x7f080012;
+        public static final int pointGroup=0x7f080006;
+        public static final int viewPager=0x7f080004;
     }
     public static final class layout {
         public static final int activity_china_mobile_page=0x7f030000;
@@ -84,10 +90,14 @@ public final class R {
         public static final int activity_nearby_service=0x7f030004;
         public static final int activity_neigh_center=0x7f030005;
         public static final int activity_payment_center=0x7f030006;
-        public static final int grid_item=0x7f030007;
-        public static final int nearbyservice_item=0x7f030008;
-        public static final int neighcenter_item=0x7f030009;
-        public static final int payment_item=0x7f03000a;
+        public static final int drag_grid_view_page=0x7f030007;
+        public static final int grid_item=0x7f030008;
+        public static final int nearbyservice_item=0x7f030009;
+        public static final int neighcenter_item=0x7f03000a;
+        public static final int page1=0x7f03000b;
+        public static final int page2=0x7f03000c;
+        public static final int page3=0x7f03000d;
+        public static final int payment_item=0x7f03000e;
     }
     public static final class menu {
         public static final int china_mobile_page=0x7f070000;

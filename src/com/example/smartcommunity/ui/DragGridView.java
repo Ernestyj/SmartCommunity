@@ -35,12 +35,12 @@ import com.nineoldandroids.animation.ObjectAnimator;
  */
 public class DragGridView extends GridView{
 	/**
-	 * DragGridViewµÄitem³¤°´ÏìÓ¦µÄÊ±¼ä£¬ Ä¬ÈÏÊÇ1000ºÁÃë£¬Ò²¿ÉÒÔ×ÔĞĞÉèÖÃ
+	 * DragGridViewçš„itemé•¿æŒ‰å“åº”çš„æ—¶é—´ï¼Œ é»˜è®¤æ˜¯1000æ¯«ç§’ï¼Œä¹Ÿå¯ä»¥è‡ªè¡Œè®¾ç½®
 	 */
 	private long dragResponseMS = 1000;
 	
 	/**
-	 * ÊÇ·ñ¿ÉÒÔÍÏ×§£¬Ä¬ÈÏ²»¿ÉÒÔ
+	 * æ˜¯å¦å¯ä»¥æ‹–æ‹½ï¼Œé»˜è®¤ä¸å¯ä»¥
 	 */
 	private boolean isDrag = false;
 	
@@ -49,73 +49,73 @@ public class DragGridView extends GridView{
 	private int moveX;
 	private int moveY;
 	/**
-	 * ÕıÔÚÍÏ×§µÄposition
+	 * æ­£åœ¨æ‹–æ‹½çš„position
 	 */
 	private int mDragPosition;
 	
 	/**
-	 * ¸Õ¿ªÊ¼ÍÏ×§µÄitem¶ÔÓ¦µÄView
+	 * åˆšå¼€å§‹æ‹–æ‹½çš„itemå¯¹åº”çš„View
 	 */
 	private View mStartDragItemView = null;
 	
 	/**
-	 * ÓÃÓÚÍÏ×§µÄ¾µÏñ£¬ÕâÀïÖ±½ÓÓÃÒ»¸öImageView
+	 * ç”¨äºæ‹–æ‹½çš„é•œåƒï¼Œè¿™é‡Œç›´æ¥ç”¨ä¸€ä¸ªImageView
 	 */
 	private ImageView mDragImageView;
 	
 	/**
-	 * Õğ¶¯Æ÷
+	 * éœ‡åŠ¨å™¨
 	 */
 	private Vibrator mVibrator;
 	
 	private WindowManager mWindowManager;
 	/**
-	 * item¾µÏñµÄ²¼¾Ö²ÎÊı
+	 * itemé•œåƒçš„å¸ƒå±€å‚æ•°
 	 */
 	private WindowManager.LayoutParams mWindowLayoutParams;
 	
 	/**
-	 * ÎÒÃÇÍÏ×§µÄitem¶ÔÓ¦µÄBitmap
+	 * æˆ‘ä»¬æ‹–æ‹½çš„itemå¯¹åº”çš„Bitmap
 	 */
 	private Bitmap mDragBitmap;
 	
 	/**
-	 * °´ÏÂµÄµãµ½ËùÔÚitemµÄÉÏ±ßÔµµÄ¾àÀë
+	 * æŒ‰ä¸‹çš„ç‚¹åˆ°æ‰€åœ¨itemçš„ä¸Šè¾¹ç¼˜çš„è·ç¦»
 	 */
 	private int mPoint2ItemTop ; 
 	
 	/**
-	 * °´ÏÂµÄµãµ½ËùÔÚitemµÄ×ó±ßÔµµÄ¾àÀë
+	 * æŒ‰ä¸‹çš„ç‚¹åˆ°æ‰€åœ¨itemçš„å·¦è¾¹ç¼˜çš„è·ç¦»
 	 */
 	private int mPoint2ItemLeft;
 	
 	/**
-	 * DragGridView¾àÀëÆÁÄ»¶¥²¿µÄÆ«ÒÆÁ¿
+	 * DragGridViewè·ç¦»å±å¹•é¡¶éƒ¨çš„åç§»é‡
 	 */
 	private int mOffset2Top;
 	
 	/**
-	 * DragGridView¾àÀëÆÁÄ»×ó±ßµÄÆ«ÒÆÁ¿
+	 * DragGridViewè·ç¦»å±å¹•å·¦è¾¹çš„åç§»é‡
 	 */
 	private int mOffset2Left;
 	
 	/**
-	 * ×´Ì¬À¸µÄ¸ß¶È
+	 * çŠ¶æ€æ çš„é«˜åº¦
 	 */
 	private int mStatusHeight; 
 	
 	/**
-	 * DragGridView×Ô¶¯ÏòÏÂ¹ö¶¯µÄ±ß½çÖµ
+	 * DragGridViewè‡ªåŠ¨å‘ä¸‹æ»šåŠ¨çš„è¾¹ç•Œå€¼
 	 */
 	private int mDownScrollBorder;
 	
 	/**
-	 * DragGridView×Ô¶¯ÏòÉÏ¹ö¶¯µÄ±ß½çÖµ
+	 * DragGridViewè‡ªåŠ¨å‘ä¸Šæ»šåŠ¨çš„è¾¹ç•Œå€¼
 	 */
 	private int mUpScrollBorder;
 	
 	/**
-	 * DragGridView×Ô¶¯¹ö¶¯µÄËÙ¶È
+	 * DragGridViewè‡ªåŠ¨æ»šåŠ¨çš„é€Ÿåº¦
 	 */
 	private static final int speed = 20;
 	
@@ -140,7 +140,7 @@ public class DragGridView extends GridView{
 		super(context, attrs, defStyle);
 		mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
 		mWindowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-		mStatusHeight = getStatusHeight(context); //»ñÈ¡×´Ì¬À¸µÄ¸ß¶È
+		mStatusHeight = getStatusHeight(context); //è·å–çŠ¶æ€æ çš„é«˜åº¦
 		
 		if(!mNumColumnsSet){
 			mNumColumns = AUTO_FIT;
@@ -150,16 +150,16 @@ public class DragGridView extends GridView{
 	
 	private Handler mHandler = new Handler();
 	
-	//ÓÃÀ´´¦ÀíÊÇ·ñÎª³¤°´µÄRunnable
+	//ç”¨æ¥å¤„ç†æ˜¯å¦ä¸ºé•¿æŒ‰çš„Runnable
 	private Runnable mLongClickRunnable = new Runnable() {
 		
 		@Override
 		public void run() {
-			isDrag = true; //ÉèÖÃ¿ÉÒÔÍÏ×§
-			mVibrator.vibrate(50); //Õğ¶¯Ò»ÏÂ
-			mStartDragItemView.setVisibility(View.INVISIBLE);//Òş²Ø¸Ãitem
+			isDrag = true; //è®¾ç½®å¯ä»¥æ‹–æ‹½
+			mVibrator.vibrate(50); //éœ‡åŠ¨ä¸€ä¸‹
+			mStartDragItemView.setVisibility(View.INVISIBLE);//éšè—è¯¥item
 			
-			//¸ù¾İÎÒÃÇ°´ÏÂµÄµãÏÔÊ¾item¾µÏñ
+			//æ ¹æ®æˆ‘ä»¬æŒ‰ä¸‹çš„ç‚¹æ˜¾ç¤ºitemé•œåƒ
 			createDragImage(mDragBitmap, mDownX, mDownY);
 		}
 	};
@@ -199,7 +199,7 @@ public class DragGridView extends GridView{
     
 
     /**
-     * ÈôÉèÖÃÎªAUTO_FIT£¬¼ÆËãÓĞ¶àÉÙÁĞ
+     * è‹¥è®¾ç½®ä¸ºAUTO_FITï¼Œè®¡ç®—æœ‰å¤šå°‘åˆ—
      */
 	@Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -231,7 +231,7 @@ public class DragGridView extends GridView{
     }
 	
 	/**
-	 * ÉèÖÃÏìÓ¦ÍÏ×§µÄºÁÃëÊı£¬Ä¬ÈÏÊÇ1000ºÁÃë
+	 * è®¾ç½®å“åº”æ‹–æ‹½çš„æ¯«ç§’æ•°ï¼Œé»˜è®¤æ˜¯1000æ¯«ç§’
 	 * @param dragResponseMS
 	 */
 	public void setDragResponseMS(long dragResponseMS) {
@@ -245,7 +245,7 @@ public class DragGridView extends GridView{
 			mDownX = (int) ev.getX();
 			mDownY = (int) ev.getY();
 			
-			//¸ù¾İ°´ÏÂµÄX,Y×ø±ê»ñÈ¡Ëùµã»÷itemµÄposition
+			//æ ¹æ®æŒ‰ä¸‹çš„X,Yåæ ‡è·å–æ‰€ç‚¹å‡»itemçš„position
 			mDragPosition = pointToPosition(mDownX, mDownY);
 			
 			
@@ -253,31 +253,31 @@ public class DragGridView extends GridView{
 				return super.dispatchTouchEvent(ev);
 			}
 			
-			//Ê¹ÓÃHandlerÑÓ³ÙdragResponseMSÖ´ĞĞmLongClickRunnable
+			//ä½¿ç”¨Handlerå»¶è¿ŸdragResponseMSæ‰§è¡ŒmLongClickRunnable
 			mHandler.postDelayed(mLongClickRunnable, dragResponseMS);
 			
-			//¸ù¾İposition»ñÈ¡¸ÃitemËù¶ÔÓ¦µÄView
+			//æ ¹æ®positionè·å–è¯¥itemæ‰€å¯¹åº”çš„View
 			mStartDragItemView = getChildAt(mDragPosition - getFirstVisiblePosition());
 			
-			//ÏÂÃæÕâ¼¸¸ö¾àÀë´ó¼Ò¿ÉÒÔ²Î¿¼ÎÒµÄ²©¿ÍÉÏÃæµÄÍ¼À´Àí½âÏÂ
+			//ä¸‹é¢è¿™å‡ ä¸ªè·ç¦»å¤§å®¶å¯ä»¥å‚è€ƒæˆ‘çš„åšå®¢ä¸Šé¢çš„å›¾æ¥ç†è§£ä¸‹
 			mPoint2ItemTop = mDownY - mStartDragItemView.getTop();
 			mPoint2ItemLeft = mDownX - mStartDragItemView.getLeft();
 			
 			mOffset2Top = (int) (ev.getRawY() - mDownY);
 			mOffset2Left = (int) (ev.getRawX() - mDownX);
 			
-			//»ñÈ¡DragGridView×Ô¶¯ÏòÉÏ¹ö¶¯µÄÆ«ÒÆÁ¿£¬Ğ¡ÓÚÕâ¸öÖµ£¬DragGridViewÏòÏÂ¹ö¶¯
+			//è·å–DragGridViewè‡ªåŠ¨å‘ä¸Šæ»šåŠ¨çš„åç§»é‡ï¼Œå°äºè¿™ä¸ªå€¼ï¼ŒDragGridViewå‘ä¸‹æ»šåŠ¨
 			mDownScrollBorder = getHeight() / 5;
-			//»ñÈ¡DragGridView×Ô¶¯ÏòÏÂ¹ö¶¯µÄÆ«ÒÆÁ¿£¬´óÓÚÕâ¸öÖµ£¬DragGridViewÏòÉÏ¹ö¶¯
+			//è·å–DragGridViewè‡ªåŠ¨å‘ä¸‹æ»šåŠ¨çš„åç§»é‡ï¼Œå¤§äºè¿™ä¸ªå€¼ï¼ŒDragGridViewå‘ä¸Šæ»šåŠ¨
 			mUpScrollBorder = getHeight() * 4/5;
 			
 			
 			
-			//¿ªÆômDragItemView»æÍ¼»º´æ
+			//å¼€å¯mDragItemViewç»˜å›¾ç¼“å­˜
 			mStartDragItemView.setDrawingCacheEnabled(true);
-			//»ñÈ¡mDragItemViewÔÚ»º´æÖĞµÄBitmap¶ÔÏó
+			//è·å–mDragItemViewåœ¨ç¼“å­˜ä¸­çš„Bitmapå¯¹è±¡
 			mDragBitmap = Bitmap.createBitmap(mStartDragItemView.getDrawingCache());
-			//ÕâÒ»²½ºÜ¹Ø¼ü£¬ÊÍ·Å»æÍ¼»º´æ£¬±ÜÃâ³öÏÖÖØ¸´µÄ¾µÏñ
+			//è¿™ä¸€æ­¥å¾ˆå…³é”®ï¼Œé‡Šæ”¾ç»˜å›¾ç¼“å­˜ï¼Œé¿å…å‡ºç°é‡å¤çš„é•œåƒ
 			mStartDragItemView.destroyDrawingCache();
 			
 			
@@ -286,7 +286,7 @@ public class DragGridView extends GridView{
 			int moveX = (int)ev.getX();
 			int moveY = (int) ev.getY();
 			
-			//Èç¹ûÎÒÃÇÔÚ°´ÏÂµÄitemÉÏÃæÒÆ¶¯£¬Ö»Òª²»³¬¹ıitemµÄ±ß½çÎÒÃÇ¾Í²»ÒÆ³ımRunnable
+			//å¦‚æœæˆ‘ä»¬åœ¨æŒ‰ä¸‹çš„itemä¸Šé¢ç§»åŠ¨ï¼Œåªè¦ä¸è¶…è¿‡itemçš„è¾¹ç•Œæˆ‘ä»¬å°±ä¸ç§»é™¤mRunnable
 			if(!isTouchInItem(mStartDragItemView, moveX, moveY)){
 				mHandler.removeCallbacks(mLongClickRunnable);
 			}
@@ -301,7 +301,7 @@ public class DragGridView extends GridView{
 
 	
 	/**
-	 * ÊÇ·ñµã»÷ÔÚGridViewµÄitemÉÏÃæ
+	 * æ˜¯å¦ç‚¹å‡»åœ¨GridViewçš„itemä¸Šé¢
 	 * @param itemView
 	 * @param x
 	 * @param y
@@ -334,7 +334,7 @@ public class DragGridView extends GridView{
 				moveX = (int) ev.getX();
 				moveY = (int) ev.getY();
 				
-				//ÍÏ¶¯item
+				//æ‹–åŠ¨item
 				onDragItem(moveX, moveY);
 				break;
 			case MotionEvent.ACTION_UP:
@@ -349,20 +349,20 @@ public class DragGridView extends GridView{
 	
 	
 	/**
-	 * ´´½¨ÍÏ¶¯µÄ¾µÏñ
+	 * åˆ›å»ºæ‹–åŠ¨çš„é•œåƒ
 	 * @param bitmap 
 	 * @param downX
-	 * 			°´ÏÂµÄµãÏà¶Ô¸¸¿Ø¼şµÄX×ø±ê
+	 * 			æŒ‰ä¸‹çš„ç‚¹ç›¸å¯¹çˆ¶æ§ä»¶çš„Xåæ ‡
 	 * @param downY
-	 * 			°´ÏÂµÄµãÏà¶Ô¸¸¿Ø¼şµÄX×ø±ê
+	 * 			æŒ‰ä¸‹çš„ç‚¹ç›¸å¯¹çˆ¶æ§ä»¶çš„Xåæ ‡
 	 */
 	private void createDragImage(Bitmap bitmap, int downX , int downY){
 		mWindowLayoutParams = new WindowManager.LayoutParams();
-		mWindowLayoutParams.format = PixelFormat.TRANSLUCENT; //Í¼Æ¬Ö®ÍâµÄÆäËûµØ·½Í¸Ã÷
+		mWindowLayoutParams.format = PixelFormat.TRANSLUCENT; //å›¾ç‰‡ä¹‹å¤–çš„å…¶ä»–åœ°æ–¹é€æ˜
 		mWindowLayoutParams.gravity = Gravity.TOP | Gravity.LEFT;
 		mWindowLayoutParams.x = downX - mPoint2ItemLeft + mOffset2Left;
 		mWindowLayoutParams.y = downY - mPoint2ItemTop + mOffset2Top - mStatusHeight;
-		mWindowLayoutParams.alpha = 0.55f; //Í¸Ã÷¶È
+		mWindowLayoutParams.alpha = 0.55f; //é€æ˜åº¦
 		mWindowLayoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;  
 		mWindowLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;  
 		mWindowLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE  
@@ -374,7 +374,7 @@ public class DragGridView extends GridView{
 	}
 	
 	/**
-	 * ´Ó½çÃæÉÏÃæÒÆ¶¯ÍÏ¶¯¾µÏñ
+	 * ä»ç•Œé¢ä¸Šé¢ç§»åŠ¨æ‹–åŠ¨é•œåƒ
 	 */
 	private void removeDragImage(){
 		if(mDragImageView != null){
@@ -384,25 +384,25 @@ public class DragGridView extends GridView{
 	}
 	
 	/**
-	 * ÍÏ¶¯item£¬ÔÚÀïÃæÊµÏÖÁËitem¾µÏñµÄÎ»ÖÃ¸üĞÂ£¬itemµÄÏà»¥½»»»ÒÔ¼°GridViewµÄ×ÔĞĞ¹ö¶¯
+	 * æ‹–åŠ¨itemï¼Œåœ¨é‡Œé¢å®ç°äº†itemé•œåƒçš„ä½ç½®æ›´æ–°ï¼Œitemçš„ç›¸äº’äº¤æ¢ä»¥åŠGridViewçš„è‡ªè¡Œæ»šåŠ¨
 	 * @param x
 	 * @param y
 	 */
 	private void onDragItem(int moveX, int moveY){
 		mWindowLayoutParams.x = moveX - mPoint2ItemLeft + mOffset2Left;
 		mWindowLayoutParams.y = moveY - mPoint2ItemTop + mOffset2Top - mStatusHeight;
-		mWindowManager.updateViewLayout(mDragImageView, mWindowLayoutParams); //¸üĞÂ¾µÏñµÄÎ»ÖÃ
+		mWindowManager.updateViewLayout(mDragImageView, mWindowLayoutParams); //æ›´æ–°é•œåƒçš„ä½ç½®
 		onSwapItem(moveX, moveY);
 		
-		//GridView×Ô¶¯¹ö¶¯
+		//GridViewè‡ªåŠ¨æ»šåŠ¨
 		mHandler.post(mScrollRunnable);
 	}
 	
 	
 	/**
-	 * µ±moveYµÄÖµ´óÓÚÏòÉÏ¹ö¶¯µÄ±ß½çÖµ£¬´¥·¢GridView×Ô¶¯ÏòÉÏ¹ö¶¯
-	 * µ±moveYµÄÖµĞ¡ÓÚÏòÏÂ¹ö¶¯µÄ±ß½çÖµ£¬´¥·¢GridView×Ô¶¯ÏòÏÂ¹ö¶¯
-	 * ·ñÔò²»½øĞĞ¹ö¶¯
+	 * å½“moveYçš„å€¼å¤§äºå‘ä¸Šæ»šåŠ¨çš„è¾¹ç•Œå€¼ï¼Œè§¦å‘GridViewè‡ªåŠ¨å‘ä¸Šæ»šåŠ¨
+	 * å½“moveYçš„å€¼å°äºå‘ä¸‹æ»šåŠ¨çš„è¾¹ç•Œå€¼ï¼Œè§¦å‘GridViewè‡ªåŠ¨å‘ä¸‹æ»šåŠ¨
+	 * å¦åˆ™ä¸è¿›è¡Œæ»šåŠ¨
 	 */
 	private Runnable mScrollRunnable = new Runnable() {
 		
@@ -430,15 +430,15 @@ public class DragGridView extends GridView{
 	
 	
 	/**
-	 * ½»»»item,²¢ÇÒ¿ØÖÆitemÖ®¼äµÄÏÔÊ¾ÓëÒş²ØĞ§¹û
+	 * äº¤æ¢item,å¹¶ä¸”æ§åˆ¶itemä¹‹é—´çš„æ˜¾ç¤ºä¸éšè—æ•ˆæœ
 	 * @param moveX
 	 * @param moveY
 	 */
 	private void onSwapItem(int moveX, int moveY){
-		//»ñÈ¡ÎÒÃÇÊÖÖ¸ÒÆ¶¯µ½µÄÄÇ¸öitemµÄposition
+		//è·å–æˆ‘ä»¬æ‰‹æŒ‡ç§»åŠ¨åˆ°çš„é‚£ä¸ªitemçš„position
 		final int tempPosition = pointToPosition(moveX, moveY);
 		
-		//¼ÙÈçtempPosition ¸Ä±äÁË²¢ÇÒtempPosition²»µÈÓÚ-1,Ôò½øĞĞ½»»»
+		//å‡å¦‚tempPosition æ”¹å˜äº†å¹¶ä¸”tempPositionä¸ç­‰äº-1,åˆ™è¿›è¡Œäº¤æ¢
 		if(tempPosition != mDragPosition && tempPosition != AdapterView.INVALID_POSITION && mAnimationEnd){
 			mDragAdapter.reorderItems(mDragPosition, tempPosition);
 			mDragAdapter.setHideItem(tempPosition);
@@ -459,7 +459,7 @@ public class DragGridView extends GridView{
 	}
 	
 	/**
-	 * ´´½¨ÒÆ¶¯¶¯»­
+	 * åˆ›å»ºç§»åŠ¨åŠ¨ç”»
 	 * @param view
 	 * @param startX
 	 * @param endX
@@ -480,7 +480,7 @@ public class DragGridView extends GridView{
 
 	
 	/**
-	 * itemµÄ½»»»¶¯»­Ğ§¹û
+	 * itemçš„äº¤æ¢åŠ¨ç”»æ•ˆæœ
 	 * @param oldPosition
 	 * @param newPosition
 	 */
@@ -534,7 +534,7 @@ public class DragGridView extends GridView{
 	}
 	
 	/**
-	 * Í£Ö¹ÍÏ×§ÎÒÃÇ½«Ö®Ç°Òş²ØµÄitemÏÔÊ¾³öÀ´£¬²¢½«¾µÏñÒÆ³ı
+	 * åœæ­¢æ‹–æ‹½æˆ‘ä»¬å°†ä¹‹å‰éšè—çš„itemæ˜¾ç¤ºå‡ºæ¥ï¼Œå¹¶å°†é•œåƒç§»é™¤
 	 */
 	private void onStopDrag(){
 		View view = getChildAt(mDragPosition - getFirstVisiblePosition());
@@ -546,7 +546,7 @@ public class DragGridView extends GridView{
 	}
 	
 	/**
-	 * »ñÈ¡×´Ì¬À¸µÄ¸ß¶È
+	 * è·å–çŠ¶æ€æ çš„é«˜åº¦
 	 * @param context
 	 * @return
 	 */

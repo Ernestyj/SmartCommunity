@@ -1,20 +1,45 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity" >
 
-    <com.example.smartcommunity.ui.DragGridView  
-        android:id="@+id/dragGridView"  
-        android:listSelector="@android:color/transparent"  
-        android:layout_width="match_parent"  
-        android:layout_height="match_parent"  
-        android:cacheColorHint="@android:color/transparent"  
-        android:verticalSpacing="10dip"  
-        android:horizontalSpacing="10dip"  
-        android:columnWidth="90dip"
-  	    android:gravity="center" 
-        android:numColumns="auto_fit" >
-    </com.example.smartcommunity.ui.DragGridView>
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
-</RelativeLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </android.support.v4.view.ViewPager>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/pointGroup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="40dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>

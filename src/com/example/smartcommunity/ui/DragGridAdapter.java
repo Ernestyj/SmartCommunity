@@ -46,7 +46,7 @@ public class DragGridAdapter extends BaseAdapter implements DragGridAdapterBase{
 	}
 
 	/**
-	 * ÓÉÓÚ¸´ÓÃconvertViewµ¼ÖÂÄ³Ğ©itemÏûÊ§ÁË£¬ËùÒÔÕâÀï²»¸´ÓÃitem£¬
+	 * ç”±äºå¤ç”¨convertViewå¯¼è‡´æŸäº›itemæ¶ˆå¤±äº†ï¼Œæ‰€ä»¥è¿™é‡Œä¸å¤ç”¨itemï¼Œ
 	 */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {

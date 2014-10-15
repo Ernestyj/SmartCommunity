@@ -25,8 +25,8 @@ public class NearbyService extends Activity {
 								R.drawable.icon_logistics, R.drawable.icon_laundry, 
 								R.drawable.icon_travel };
 	//label
-	private String[] mFuncLab = {"ÕïËù", "°´Ä¦", "ÅàÑµ°à", "ÍĞ¶ùËù", 
-								"ÎïÁ÷", "Ï´ÒÂ", "ÂÃĞĞÉç"};
+	private String[] mFuncLab = {"è¯Šæ‰€", "æŒ‰æ‘©", "åŸ¹è®­ç­", "æ‰˜å„¿æ‰€", 
+								"ç‰©æµ", "æ´—è¡£", "æ—…è¡Œç¤¾"};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
