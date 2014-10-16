@@ -1,4 +1,4 @@
-package com.example.smartcommunity.ui;
+package com.example.smartcommunity.view;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -23,7 +23,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 
-import com.example.smartcommunity.ui.DragGridAdapterBase;
+import com.example.smartcommunity.view.DragGridAdapterBase;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.animation.AnimatorSet;

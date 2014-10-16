@@ -21,18 +21,26 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.smartcommunity.imp.DragGridListener;
+import com.example.smartcommunity.imp.ViewPagerAdapter;
+import com.example.smartcommunity.imp.ViewPagerChangeListener;
 import com.example.smartcommunity.nearbyservice.NearbyService;
 import com.example.smartcommunity.neighcenter.NeighCenter;
 import com.example.smartcommunity.payment.PaymentCenter;
-import com.example.smartcommunity.ui.DragGridAdapter;
-import com.example.smartcommunity.ui.DragGridView;
+import com.example.smartcommunity.view.DragGridAdapter;
+import com.example.smartcommunity.view.DragGridView;
 
 /**
  * @blog http://blog.csdn.net/xiaanming 
  * @author xiaanming
  */
 public class MainActivity extends Activity {
-	
+	private ViewPager viewPager;
+	private ArrayList<View> pageViews;/**装分页显示的view的数组*/
+	private ImageView pointImageView;
+	private ImageView[] pointImageViews;/**将小圆点的图片用数组表示*/
+	private ViewGroup mainGroup;//包裹滑动图片的LinearLayout
+	private ViewGroup pointGroup;//包裹小圆点的LinearLayout
 	private List<HashMap<String, Object>> dataSourceList = new ArrayList<HashMap<String, Object>>();
 	private static String[] labels = {"周边服务", "邻里中心", "智能家居", "社区送餐", "便民缴费", 
 										"邻里团购", "邻里活动", "快递信息", "费用充值", 
@@ -48,13 +56,7 @@ public class MainActivity extends Activity {
 										"pic", "pic", "pic", "pic",
 										"pic", "pic", "pic", "pic"
 										};
-	private ViewPager viewPager;
-	private ArrayList<View> pageViews;/**装分页显示的view的数组*/
-	private ImageView pointImageView;
-	private ImageView[] pointImageViews;/**将小圆点的图片用数组表示*/
-	private ViewGroup mainGroup;//包裹滑动图片的LinearLayout
-	private ViewGroup pointGroup;//包裹小圆点的LinearLayout
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -83,94 +85,7 @@ public class MainActivity extends Activity {
 		}
 		DragGridAdapter mDragAdapter = new DragGridAdapter(this, dataSourceList);
 		mDragGridView.setAdapter(mDragAdapter);
-		mDragGridView.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long rowid) {
-				HashMap<String, Object> item = (HashMap<String, Object>)parent.getItemAtPosition(position);
-				//String text = (String)item.get("item_text");
-				int image = (Integer)item.get("item_image");
-				//Toast.makeText(MainActivity.this, "未安装此程序", Toast.LENGTH_LONG).show();
-				switch (image) {
-				case R.drawable.icon_eleme:
-					Intent eleme=new Intent();    
-					eleme.setClassName("me.ele", "me.ele.activity.SplashActivity");  
-					try {
-						startActivity(eleme);
-					} catch (Exception e) {
-						Toast.makeText(getApplicationContext(), "请先安装饿了么", Toast.LENGTH_SHORT).show();
-					}
-					break;
-					
-				case R.drawable.icon_meituan:
-					Intent meituan=new Intent();    
-					meituan.setClassName("com.sankuai.meituan", "com.sankuai.meituan.activity.Welcome");
-					try {
-						startActivity(meituan);
-					} catch (Exception e) {
-						Toast.makeText(getApplicationContext(), "请先安装美团", Toast.LENGTH_SHORT).show();
-					}
-					break;
-					
-				case R.drawable.icon_tongquwang:
-					Intent tongquwang=new Intent();    
-					tongquwang.setClassName("com.tongqu", "com.tongqu.welcome.WelcomeActivity"); 
-					try {
-						startActivity(tongquwang);
-					} catch (Exception e) {
-						Toast.makeText(getApplicationContext(), "请先安装同去客户端", Toast.LENGTH_SHORT).show();
-					}
-					break;
-					
-				case R.drawable.icon_kuaidi100:
-					Intent intent=new Intent();    
-					intent.setClassName("com.Kingdee.Express", "com.Express.Activity.Splash");
-					try {
-						startActivity(intent);
-					} catch (Exception e) {
-						Toast.makeText(getApplicationContext(), "请先安装快递100", Toast.LENGTH_SHORT).show();
-					}
-					break;
-					
-				case R.drawable.icon_dididache:
-					Intent dididache=new Intent();    
-					dididache.setClassName("com.sdu.didi.psnger", "com.didi.frame.MainActivity");  
-					try {
-						startActivity(dididache);
-					} catch (Exception e) {
-						Toast.makeText(getApplicationContext(), "请先安装滴滴打车", Toast.LENGTH_SHORT).show();
-					}
-					break;
-					
-				case R.drawable.icon_damai:
-					Intent damai=new Intent();    
-					damai.setClassName("cn.damai", "cn.damai.activity.MainSplashActivity");  
-					try {
-						startActivity(damai);
-					} catch (Exception e) {
-						Toast.makeText(getApplicationContext(), "请先安装大麦客户端", Toast.LENGTH_SHORT).show();
-					}
-					break;
-					
-				case R.drawable.icon_neighbourhood:
-					Intent neighCenterIntent = new Intent(MainActivity.this, NeighCenter.class);
-					startActivity(neighCenterIntent);
-					break;
-					
-				case R.drawable.icon_payment:
-					Intent paymentIntent = new Intent(MainActivity.this,PaymentCenter.class);
-					startActivity(paymentIntent);
-					break;
-					
-				case R.drawable.icon_nearbyservice:
-					Intent nearbyServiceIntent = new Intent(MainActivity.this,NearbyService.class);
-					startActivity(nearbyServiceIntent);
-					break;
-					
-				default:
-					break;
-				}
-			}
-		});
+		mDragGridView.setOnItemClickListener(new DragGridListener(this));
         
         //实例化小圆点的linearLayout和viewpager
         pointGroup = (ViewGroup) mainGroup.findViewById(R.id.pointGroup);
@@ -200,81 +115,9 @@ public class MainActivity extends Activity {
         setContentView(mainGroup);
         
         //设置viewpager的适配器和监听事件
-        viewPager.setAdapter(new ViewPagerAdapter());
-        viewPager.setOnPageChangeListener(new ViewPagerChangeListener());
+        viewPager.setAdapter(new ViewPagerAdapter(pageViews));
+        viewPager.setOnPageChangeListener(new ViewPagerChangeListener(pointImageViews));
 	}
-	
-    class ViewPagerAdapter extends PagerAdapter{
-    	//销毁position位置的界面
-		@Override
-		public void destroyItem(ViewGroup v, int position, Object o) {
-			v.removeView(pageViews.get(position));
-		}
-
-		@Override
-		public void finishUpdate(View arg0) {
-		}
-		
-		//获取当前窗体界面数
-		@Override
-		public int getCount() {
-			return pageViews.size();
-		}
-
-		//初始化position位置的界面
-		@Override
-		public Object instantiateItem(ViewGroup v, int position) {
-			v.addView(pageViews.get(position));
-            return pageViews.get(position);  
-		}
-
-		// 判断是否由对象生成界面
-		@Override
-		public boolean isViewFromObject(View v, Object arg1) {
-			return v == arg1;
-		}
-
-		@Override
-		public void startUpdate(View arg0) {
-		}
-
-		@Override
-		public int getItemPosition(Object object) {
-			return super.getItemPosition(object);
-		}
-
-		@Override
-		public void restoreState(Parcelable arg0, ClassLoader arg1) {
-		}
-
-		@Override
-		public Parcelable saveState() {
-			return null;
-		}
-    }
-    
-
-    class ViewPagerChangeListener implements OnPageChangeListener{
-
-		@Override
-		public void onPageScrollStateChanged(int arg0) {
-		}
-
-		@Override
-		public void onPageScrolled(int arg0, float arg1, int arg2) {
-		}
-
-		@Override
-		public void onPageSelected(int position) {
-			for(int i=0;i<pointImageViews.length;i++){
-				pointImageViews[position].setBackgroundResource(R.drawable.page_indicator_focused);
-				//不是当前选中的page，其小圆点设置为未选中的状态
-				if(position !=i){
-					pointImageViews[i].setBackgroundResource(R.drawable.page_indicator);
-				}
-			}
-		}
-    }
 	
 	private int getDrawableRes(String s){
 		try {
@@ -285,6 +128,5 @@ public class MainActivity extends Activity {
 			return -1;
 		}
 	}
-
 }
 
