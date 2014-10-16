@@ -23,7 +23,7 @@ public class NearbyService extends Activity {
 	private Integer[] mFuncIcon = {R.drawable.icon_clinic, R.drawable.icon_massage, 
 								R.drawable.icon_training, R.drawable.icon_nursery, 
 								R.drawable.icon_logistics, R.drawable.icon_laundry, 
-								R.drawable.icon_travel };
+								R.drawable.icon_travelagent };
 	//label
 	private String[] mFuncLab = {"诊所", "按摩", "培训班", "托儿所", 
 								"物流", "洗衣", "旅行社"};
